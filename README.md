@@ -1,6 +1,3 @@
-# Data-Augmentation-project
-Final year project.
-
 Image Augment:
 - Testing GAN implementation still in experimentation stage.
 
