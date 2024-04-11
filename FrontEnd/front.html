@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Year Project</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="j.js"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js" integrity="sha512-csNcFYJniKjJxRWRV1R7fvnXrycHP6qDR21mgz1ZP55xY5d+aHLfo9/FcGDQLfn2IfngbAHd8LdfsagcCqgTcQ==" crossorigin = "anonymous" referrerpolicy = "no-referrer"> </script>
+</head>
+
+<body onload="bodyloaded()">
+
+    <header class="header">
+        <a href="#" class="logo">Data Augmentation Using Generative AI.</a>
+
+        <nav class="navbar">
+            <a href="#" class="active">Home</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <section class="home">
+        <div class="home-content">
+            <video id="background-video"  loop muted poster="Screenshot 2024-04-12 001112.png">
+                <source src="ef.mp4" type="video/mp4">
+              </video>              
+            <h1>Data Augmentation Using Generative-AI</h1>
+            <p>Welcome to the cutting-edge realm of data augmentation, where the fusion of natural language processing (NLP) and image processing takes center stage. Our project is dedicated to crafting a user-friendly interface that empowers users to effortlessly enhance their datasets using advanced generative AI techniques.</p>
+            <div class="btn-box">
+                <label for="csv-file" class="file-label" id="csv-label">Upload CSV File</label>
+                <input type="file" id="csv-file" style="display: none;" accept=".csv" onchange="handleCSVUpload(event)">
+                <label for="image-file" class="file-label" id="image-label">Upload Image File</label>
+                <input type="file" id="image-file" style="display: none;" accept="image/*" onchange="handleImageUpload(event)">
+            </div>                        
+            <button class="result-btn">Result</button>
+        </div>
+    </section>
+</body>
+
+</html>
