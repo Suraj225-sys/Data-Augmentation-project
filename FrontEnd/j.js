@@ -69,7 +69,7 @@ function bodyloaded(){
     var backgroundVideo = document.getElementById("background-video");
 
     // Set a delay before playing the video (in milliseconds)
-    var delay = 2500; // 5000 milliseconds = 5 seconds
+    var delay = 2950; // 5000 milliseconds = 5 seconds
 
     // Function to start playing the video after the delay
     function playVideo() {
