@@ -10,57 +10,32 @@ uploadCsvInput.addEventListener('click', function(event) {
 uploadImageInput.addEventListener('click', function(event) {
     event.preventDefault();
 });
-function handleCSVUpload(event) {
+
+
+function handleFileUpload(event) {
     const file = event.target.files[0];
     if (file) {
-        const folderPath = "C:\Yashas\Final Year Project"; // Change this to your desired folder path
-        const filePath = folderPath + '/' + file.name;
+       // Create an S3 instance
+        const s3 = new window.AWS.S3({
+            accessKeyId: 'AKIAXDOGX2RFZORT5XLH',
+            secretAccessKey: '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'
+          });
 
-        // Create a new anchor element
-        const anchor = document.createElement('a');
-        anchor.href = URL.createObjectURL(file);
-        anchor.download = file.name;
-
-        // Append the anchor to the body and trigger a click event
-        document.body.appendChild(anchor);
-        anchor.click();
-
-        // Remove the anchor from the body
-        setTimeout(() => {
-            document.body.removeChild(anchor);
-            URL.revokeObjectURL(anchor.href);
-        }, 100);
-    } 
-    /*alert("HI")
-    var blob = new Blob(["This is a sample file content."], {
-        type: "text/plain;charset=utf-8",
-     });
-     saveAs(blob, "download.txt");*/
-}
-
-function handleImageUpload(event) {
-    const file = event.target.files[0];
-    if (file) {
-        const folderPath = "C:\Yashas\Final Year Project"; // Change this to your desired folder path
-        const filePath = folderPath + '/' + file.name;
-
-        // Create a new anchor element
-        const anchor = document.createElement('a');
-        anchor.href = URL.createObjectURL(file);
-        anchor.download = file.name;
-
-        // Append the anchor to the body and trigger a click event
-        document.body.appendChild(anchor);
-        anchor.click();
-
-        // Remove the anchor from the body
-        setTimeout(() => {
-            document.body.removeChild(anchor);
-            URL.revokeObjectURL(anchor.href);
-        }, 100);
+        // Upload file to S3
+        const params = {
+            Bucket: 'dataaugmentations3bucket',
+            Key:  file.name,
+            Body: file
+        };
+        s3.upload(params, function(err, data) {
+            if (err) {
+                console.error("Error uploading image file to S3:", err);
+            } else {
+                console.log("Image file uploaded successfully to S3:", data.Location);
+            }
+        });
     }
 }
-
 
 
 function bodyloaded(){
