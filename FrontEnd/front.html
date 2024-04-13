@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Final Year Project</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.726.0.min.js"></script>
     <script src="j.js"></script>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js" integrity="sha512-csNcFYJniKjJxRWRV1R7fvnXrycHP6qDR21mgz1ZP55xY5d+aHLfo9/FcGDQLfn2IfngbAHd8LdfsagcCqgTcQ==" crossorigin = "anonymous" referrerpolicy = "no-referrer"> </script>
@@ -33,10 +34,11 @@
             <p>Welcome to the cutting-edge realm of data augmentation, where the fusion of natural language processing (NLP) and image processing takes center stage. Our project is dedicated to crafting a user-friendly interface that empowers users to effortlessly enhance their datasets using advanced generative AI techniques.</p>
             <div class="btn-box">
                 <label for="csv-file" class="file-label" id="csv-label">Upload CSV File</label>
-                <input type="file" id="csv-file" style="display: none;" accept=".csv" onchange="handleCSVUpload(event)">
+                <input type="file" id="csv-file" style="display: none;" accept=".csv" onchange="handleFileUpload(event)">
                 <label for="image-file" class="file-label" id="image-label">Upload Image File</label>
-                <input type="file" id="image-file" style="display: none;" accept="image/*" onchange="handleImageUpload(event)">
-            </div>                        
+                <input type="file" id="image-file" style="display: none;" accept="image/*" onchange="handleFileUpload(event)">
+            </div>
+                                   
             <button class="result-btn">Result</button>
         </div>
     </section>
