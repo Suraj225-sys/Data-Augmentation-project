@@ -17,8 +17,8 @@ function handleFileUpload(event) {
     if (file) {
        // Create an S3 instance
         const s3 = new window.AWS.S3({
-            accessKeyId: 'AKIAXDOGX2RFZORT5XLH',
-            secretAccessKey: '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'
+            accessKeyId: 'suii',
+            secretAccessKey: 'suii'
           });
 
         // Upload file to S3
