@@ -12,18 +12,18 @@ uploadImageInput.addEventListener('click', function(event) {
 });
 
 
-function handleFileUpload(event) {
+function handleFileUpload(event, isCsvFile) {
     const file = event.target.files[0];
     if (file) {
        // Create an S3 instance
         const s3 = new window.AWS.S3({
-            accessKeyId: 'suii',
-            secretAccessKey: 'suii'
+            accessKeyId: 'accessKey',
+            secretAccessKey: 'secretAccessKey'
           });
 
         // Upload file to S3
         const params = {
-            Bucket: 'dataaugmentations3bucket',
+            Bucket: isCsvFile ? 'dataaugmentations3bucket': "dataaugmentations3imageupload",	
             Key:  file.name,
             Body: file
         };
