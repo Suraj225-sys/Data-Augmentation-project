@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Final Year Project</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
     <script src="https://sdk.amazonaws.com/js/aws-sdk-2.726.0.min.js"></script>
     <script src="j.js"></script>
@@ -29,17 +30,37 @@
         <div class="home-content">
             <video id="background-video"  loop muted poster="Screenshot 2024-04-12 001112.png">
                 <source src="ef.mp4" type="video/mp4">
-              </video>              
-            <h1>Data Augmentation Using Generative-AI</h1>
-            <p>Welcome to the cutting-edge realm of data augmentation, where the fusion of natural language processing (NLP) and image processing takes center stage. Our project is dedicated to crafting a user-friendly interface that empowers users to effortlessly enhance their datasets using advanced generative AI techniques.</p>
-            <div class="btn-box">
-                <label for="csv-file" class="file-label" id="csv-label">Upload CSV File</label>
-                <input type="file" id="csv-file" style="display: none;" accept=".csv" onchange="handleFileUpload(event)">
-                <label for="image-file" class="file-label" id="image-label">Upload Image File</label>
-                <input type="file" id="image-file" style="display: none;" accept="image/*" onchange="handleFileUpload(event)">
+              </video>
+              <div class = "row">
+                <h1 class = "col-xs-6 augmentation-header">Data Augmentation Using Generative-AI</h1>
+              </div>
+              <div class = "row">
+                <p class = "col-xs-6 augmentation-content">Welcome to the cutting-edge realm of data augmentation, where the fusion of natural language processing (NLP) and image processing takes center stage. Our project is dedicated to crafting a user-friendly interface that empowers users to effortlessly enhance their datasets using advanced generative AI techniques.</p>
+              </div>
+            
+            
+            
+            <!--<button class="result-btn">Result</button>-->
+             <div class = "text-box row">
+                <div class = "col-xs-6">
+                    <h2> CSV AUGMENTATION</h2>
+                    <p class = "csv-augmentation-content">CSV augmentation is often used in machine learning and data analysis tasks to improve the performance and generalization of predictive models. By increasing the size and diversity of the dataset, CSV augmentation can help reduce overfitting, improve model accuracy, and make the model more robust to variations in the input data.</p>
+                    <div class="btn-box">
+                        <label for="csv-file" class="file-label" id="csv-label">Upload CSV File</label>
+                        <input type="file" id="csv-file" style="display: none;" accept=".csv" onchange="handleFileUpload(event, true)">
+                    </div>
+                </div>
+                <div class = "col-xs-6">
+                    <h2> IMAGE AUGMENTATION</h2>
+                    <p class = "image-augmentation-content">Image augmentation is a technique used in computer vision and deep learning tasks to artificially expand the size of a dataset by applying various transformations to the existing images. These transformations are typically applied randomly and include operations such as rotation, scaling, translation, flipping, cropping, and changing brightness or contrast.</p>
+                <div class="btn-box">
+                    <label for="image-file" class="file-label" id="image-label">Upload Image File</label>
+                    <input type="file" id="image-file" style="display: none;" accept="image/*" onchange="handleFileUpload(event, false)">
+                </div>
             </div>
-                                   
-            <button class="result-btn">Result</button>
+            </div>
+                                  
+            
         </div>
     </section>
 </body>
