@@ -54,10 +54,7 @@ body{
 .image-augmentation-content{
     font-size: 20px !important;
 }
-.text-box{
-    padding-top: 59%;
-    padding-bottom: 23%;
-}
+
 .augmentation-content{
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 25px !important;
@@ -127,6 +124,7 @@ body{
 }
 
 .home-content h2{
+    left: 15%;
     position: relative;
     font-size: 30px;
     font-weight: 700;
@@ -230,17 +228,55 @@ body{
 }
 
 #background-video {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    position: fixed;
+    position: absolute;
     left: 0;
     right: 0;
     top: 0;
     bottom: 0;
     z-index: -1;
   }
-  
+
+#background-video-text-box{
+    width: 100%;
+    height: 107%;
+    object-fit: cover;
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: -1;
+
+}
+
+#background-video-csv{
+    width: 100%;
+    height: 107%;
+    object-fit: cover;
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: -1;
+
+}
+
+.image-augmentation{
+    left: 29%;
+    top: 28%;
+}
+.image-augmentation-height{
+    height: 64rem;
+}
+
+.text-box{
+    height: 80rem;
+}
+
+.csv-augmentation{
+    left: 28%;
+    top: 30%;
+}
 
 .home-imgHover {
     position: absolute;
@@ -276,6 +312,7 @@ body{
 
 /* Apply styles to the buttons */
 .file-label {
+    
     display: inline-block;
     padding: 10px 20px;
     background-color: #00abf0;
@@ -289,6 +326,13 @@ body{
     position: relative; /* Added for positioning of pseudo-element */
 }
 
+.file-label-image{
+    left: 46%;
+}
+
+.file-label-csv{
+    left: 39%;
+}
 /* Apply styles to the buttons' pseudo-elements */
 .file-label::before {
     content: '';
