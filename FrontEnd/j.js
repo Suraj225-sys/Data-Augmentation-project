@@ -17,7 +17,7 @@ function handleFileUpload(event, isCsvFile) {
     if (file) {
        // Create an S3 instance
         const s3 = new window.AWS.S3({
-            accessKeyId: 'accessKey',
+            accessKeyId: 'accessKeyId',
             secretAccessKey: 'secretAccessKey'
           });
 
@@ -42,6 +42,8 @@ function bodyloaded(){
 
     // Get the background video element
     var backgroundVideo = document.getElementById("background-video");
+    var backgroundVideoTextBox = document.getElementById("background-video-text-box");
+    var backgroundVideoCsvBox = document.getElementById("background-video-csv");
 
     // Set a delay before playing the video (in milliseconds)
     var delay = 2950; // 5000 milliseconds = 5 seconds
@@ -50,6 +52,8 @@ function bodyloaded(){
     function playVideo() {
         // Play the video
         backgroundVideo.play();
+        backgroundVideoTextBox.play();
+        backgroundVideoCsvBox.play();
     }
 
     // Start playing the video after the delay
