@@ -52,13 +52,15 @@
                     <h2> IMAGE AUGMENTATION</h2>
                     <p class = "image-augmentation-content">Image augmentation is a technique used in computer vision and deep learning tasks to artificially expand the size of a dataset by applying various transformations to the existing images. These transformations are typically applied randomly and include operations such as rotation, scaling, translation, flipping, cropping, and changing brightness or contrast.</p>
                 <div class="btn-box">
-                    <div class="email-section">
-                        <input type="email" id="image-email-input" class = "email-input" placeholder="Enter your email address">
+                    <form onsubmit="return false">
+                    <div class="email-section row">
+                        <input type="email" autocomplete="on" name = "email" id="image-email-input" class = "email-input" placeholder="Enter your email address"/>
                         
                     </div>
                     <label for="image-file" class="file-label file-label-image" id="image-label">Upload Image File</label>
                     <input type="file" id="image-file" style="display: none;" accept="image/*">
-                    <div><button class = "submit-email-btn" id="submit-image-email-btn" onclick="handleImageUpload()">Submit</button></div>
+                    <div><button type="submit" class = "submit-email-btn" id="submit-image-email-btn" onclick="handleImageUpload(event)">Submit</button></div>
+                </form> 
                 </div>
             </div>
             </div>
@@ -70,14 +72,28 @@
                     <h2> CSV AUGMENTATION</h2>
                     <p class = "csv-augmentation-content">CSV augmentation is often used in machine learning and data analysis tasks to improve the performance and generalization of predictive models. By increasing the size and diversity of the dataset, CSV augmentation can help reduce overfitting, improve model accuracy, and make the model more robust to variations in the input data.</p>
                     <div class="btn-box">
-                        <div class="email-section">
-                            <input type="email" id="csv-email-input" class = "email-input" placeholder="Enter your email address">
+                        <form onsubmit="return false">
+                        <div class="email-section row">
+                            <input type="email" autocomplete ="on" name = "email" id="csv-email-input" class = "email-input" placeholder="Enter your email address"/>
                             
                         </div>
                         <label for="csv-file" class="file-label file-label-csv" id="csv-label">Upload CSV File</label>
                         <input type="file" id="csv-file" style="display: none;" accept=".csv" >
-                        <div><button class = "submit-email-btn" id="submit-csv-email-btn" onclick="handleCsvUpload()">Submit</button></div>
+                        <div><button type="submit" class = "submit-email-btn" id="submit-csv-email-btn" onclick="handleCsvUpload()">Submit</button></div>
+                    </form>
                     </div>
+                </div>
+            </div>
+            <div id="success-csv-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <p>Augmented CSV File will be sent to your email.</p>
+                </div>
+            </div>
+            <div id="success-image-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <p>Augmented Image File will be sent to your email.</p>
                 </div>
             </div>
                                   
