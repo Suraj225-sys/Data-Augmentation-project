@@ -1,44 +1,10 @@
 // Get the "Upload CSV File" and "Upload Image File" input elements
-const uploadCsvInput = document.getElementById('upload-csv');
-const uploadImageInput = document.getElementById('upload-image');
+
 const validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
-// Prevent default behavior when clicking on "Upload CSV File" and "Upload Image File" inputs
-uploadCsvInput.addEventListener('click', function(event) {
-    event.preventDefault();
-});
-
-uploadImageInput.addEventListener('click', function(event) {
-    event.preventDefault();
-});
 
 
-/*function handleFileUpload(event, isCsvFile) {
-    const file = event.target.files[0];
-    if (file) {
-       // Create an S3 instance
-        const s3 = new window.AWS.S3({
-            accessKeyId: '',
-            secretAccessKey: ''
-          });
-
-        // Upload file to S3
-        const params = {
-            Bucket: isCsvFile ? 'dataaugmentations3bucket': "dataaugmentations3imageupload",	
-            Key:  file.name,
-            Body: file
-        };
-        s3.upload(params, function(err, data) {
-            if (err) {
-                console.error("Error uploading image file to S3:", err);
-            } else {
-                console.log("Image file uploaded successfully to S3:", data.Location);
-            }
-        });
-    }
-}*/
-
-function handleImageUpload(){
+function handleImageUpload(event){
     const file =  document.getElementById("image-file").files[0];
     const email = document.getElementById("image-email-input").value;
     
@@ -86,14 +52,16 @@ function handleCsvUpload(){
             alert("Enter vaild Email-Id ")
         } else{
             uploadFile(true, file);
+
         }
     }
+    
 }
 function uploadFile(isCsvFile,file)
 {
     const s3 = new window.AWS.S3({
         accessKeyId: 'accessKeyID',
-        secretAccessKey: 'secretAccessKey'
+        secretAccessKey: 'secretAccessKeyId'
       });
 
     // Upload file to S3
@@ -106,7 +74,14 @@ function uploadFile(isCsvFile,file)
         if (err) {
             console.error("Error uploading image file to S3:", err);
         } else {
-            console.log("Image file uploaded successfully to S3:", data.Location);
+            const modal = isCsvFile ? document.getElementById('success-csv-modal') : document.getElementById('success-image-modal') ;
+        modal.style.display = 'block';
+
+        // Close the modal when the close button is clicked
+        const closeBtn = isCsvFile ? document.getElementsByClassName('close')[0] : document.getElementsByClassName('close')[1];
+        closeBtn.onclick = function() {
+            modal.style.display = 'none';
+        };
         }
     });
 
@@ -134,11 +109,3 @@ function bodyloaded(){
     setTimeout(playVideo, delay);
 }
 
-// Function to handle the submission of email
-document.getElementById('submit-email-btn').addEventListener('click', function() {
-    const email = document.getElementById('email-input').value;
-    // Here you can perform any validation or further processing with the email
-    console.log('Submitted email:', email);
-    // Clear the input field after submission if needed
-    document.getElementById('email-input').value = '';
-});
