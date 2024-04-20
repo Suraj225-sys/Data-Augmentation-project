@@ -278,6 +278,43 @@ body{
     top: 30%;
 }
 
+.email-section {
+    margin-bottom: 20px;
+}
+
+.email-input {
+    position: relative;
+    left: 33%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.submit-email-btn {
+    margin-top: 5%;
+    position: relative;
+    left: 49%;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #00abf0;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.submit-email-btn:hover{
+    background-color: #081b29;
+    color: #00abf0;
+}
+
+.upload-buttons {
+    margin-top: 20px;
+}
+
+/* Rest of your existing CSS styles */
+
 .home-imgHover {
     position: absolute;
     top: 0;
@@ -327,7 +364,7 @@ body{
 }
 
 .file-label-image{
-    left: 46%;
+    left: 37%;
 }
 
 .file-label-csv{
