@@ -1,6 +1,7 @@
 // Get the "Upload CSV File" and "Upload Image File" input elements
 const uploadCsvInput = document.getElementById('upload-csv');
 const uploadImageInput = document.getElementById('upload-image');
+const validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
 // Prevent default behavior when clicking on "Upload CSV File" and "Upload Image File" inputs
 uploadCsvInput.addEventListener('click', function(event) {
@@ -12,13 +13,13 @@ uploadImageInput.addEventListener('click', function(event) {
 });
 
 
-function handleFileUpload(event, isCsvFile) {
+/*function handleFileUpload(event, isCsvFile) {
     const file = event.target.files[0];
     if (file) {
        // Create an S3 instance
         const s3 = new window.AWS.S3({
-            accessKeyId: 'accessKeyId',
-            secretAccessKey: 'secretAccessKey'
+            accessKeyId: '',
+            secretAccessKey: ''
           });
 
         // Upload file to S3
@@ -35,8 +36,81 @@ function handleFileUpload(event, isCsvFile) {
             }
         });
     }
+}*/
+
+function handleImageUpload(){
+    const file =  document.getElementById("image-file").files[0];
+    const email = document.getElementById("image-email-input").value;
+    
+    if(!file && !email){
+        alert("Select image and enter email id")
+    } else if(!email){
+        alert("Enter Email-Id")
+    } else if(!file){
+        const valid = email.match(validRegex);
+        if(!valid){
+            alert("Enter vaild Email-Id and Select Image File")
+        } else{
+            alert("Select Image File")
+        }
+        
+    } else{
+        const valid = email.match(validRegex);
+        if(!valid){
+            alert("Enter vaild Email-Id ")
+        } else{
+            uploadFile(false, file);
+        }
+    }
 }
 
+function handleCsvUpload(){
+    const file =  document.getElementById("csv-file").files[0];
+    const email = document.getElementById("csv-email-input").value;
+    
+    if(!file && !email){
+        alert("Select CSV and enter email id")
+    } else if(!email){
+        alert("Enter Email-Id")
+    } else if(!file){
+        const valid = email.match(validRegex);
+        if(!valid){
+            alert("Enter vaild Email-Id and Select CSV File")
+        } else{
+            alert("Select CSV File")
+        }
+        
+    } else{
+        const valid = email.match(validRegex);
+        if(!valid){
+            alert("Enter vaild Email-Id ")
+        } else{
+            uploadFile(true, file);
+        }
+    }
+}
+function uploadFile(isCsvFile,file)
+{
+    const s3 = new window.AWS.S3({
+        accessKeyId: 'accessKeyID',
+        secretAccessKey: 'secretAccessKey'
+      });
+
+    // Upload file to S3
+    const params = {
+        Bucket: isCsvFile ? 'dataaugmentations3bucket': "dataaugmentations3imageupload",	
+        Key:  file.name,
+        Body: file
+    };
+    s3.upload(params, function(err, data) {
+        if (err) {
+            console.error("Error uploading image file to S3:", err);
+        } else {
+            console.log("Image file uploaded successfully to S3:", data.Location);
+        }
+    });
+
+}
 
 function bodyloaded(){
 
@@ -59,3 +133,12 @@ function bodyloaded(){
     // Start playing the video after the delay
     setTimeout(playVideo, delay);
 }
+
+// Function to handle the submission of email
+document.getElementById('submit-email-btn').addEventListener('click', function() {
+    const email = document.getElementById('email-input').value;
+    // Here you can perform any validation or further processing with the email
+    console.log('Submitted email:', email);
+    // Clear the input field after submission if needed
+    document.getElementById('email-input').value = '';
+});
