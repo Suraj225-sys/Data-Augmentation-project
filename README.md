@@ -1,5 +1,5 @@
 Image Augment:
-- Testing GAN implementation still in experimentation stage.
+- The Generator model has been trained for 50 epochs, need to increase the epochs to achieve better Fake images.
 
 Text Augment:
 - This file runs only when the model is downloaded locally. Uncomment the necessary lines of code to run it, if it's needed to be testes on any pc's.
