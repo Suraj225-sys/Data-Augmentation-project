@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Final Year Project</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
     <script src="https://sdk.amazonaws.com/js/aws-sdk-2.726.0.min.js"></script>
     <script src="j.js"></script>
@@ -27,19 +28,76 @@
 
     <section class="home">
         <div class="home-content">
+            <section class = "image-augmentation-height">
             <video id="background-video"  loop muted poster="Screenshot 2024-04-12 001112.png">
                 <source src="ef.mp4" type="video/mp4">
-              </video>              
-            <h1>Data Augmentation Using Generative-AI</h1>
-            <p>Welcome to the cutting-edge realm of data augmentation, where the fusion of natural language processing (NLP) and image processing takes center stage. Our project is dedicated to crafting a user-friendly interface that empowers users to effortlessly enhance their datasets using advanced generative AI techniques.</p>
-            <div class="btn-box">
-                <label for="csv-file" class="file-label" id="csv-label">Upload CSV File</label>
-                <input type="file" id="csv-file" style="display: none;" accept=".csv" onchange="handleFileUpload(event)">
-                <label for="image-file" class="file-label" id="image-label">Upload Image File</label>
-                <input type="file" id="image-file" style="display: none;" accept="image/*" onchange="handleFileUpload(event)">
+              </video>
+              <div class = "row">
+                <h1 class = "col-xs-6 augmentation-header">Data Augmentation Using Generative-AI</h1>
+              </div>
+              <div class = "row">
+                <p class = "col-xs-6 augmentation-content">Welcome to the cutting-edge realm of data augmentation, where the fusion of natural language processing (NLP) and image processing takes center stage. Our project is dedicated to crafting a user-friendly interface that empowers users to effortlessly enhance their datasets using advanced generative AI techniques.</p>
+              </div>
+            </section>
+            
+            
+            
+            <!--<button class="result-btn">Result</button>-->
+             <div class = "text-box row">
+                <video id="background-video-text-box"  loop muted poster="Screenshot 2024-04-12 001112.png">
+                    <source src="gf.mp4" type="video/mp4">
+                  </video>
+                <div class = "col-xs-6 image-augmentation">
+                    
+                    <h2> IMAGE AUGMENTATION</h2>
+                    <p class = "image-augmentation-content">Image augmentation is a technique used in computer vision and deep learning tasks to artificially expand the size of a dataset by applying various transformations to the existing images. These transformations are typically applied randomly and include operations such as rotation, scaling, translation, flipping, cropping, and changing brightness or contrast.</p>
+                <div class="btn-box">
+                    <form onsubmit="return false">
+                    <div class="email-section row">
+                        <input type="email" autocomplete="on" name = "email" id="image-email-input" class = "email-input" placeholder="Enter your email address"/>
+                        
+                    </div>
+                    <label for="image-file" class="file-label file-label-image" id="image-label">Upload Image File</label>
+                    <input type="file" id="image-file" style="display: none;" accept="image/*">
+                    <div><button type="submit" class = "submit-email-btn" id="submit-image-email-btn" onclick="handleImageUpload(event)">Submit</button></div>
+                </form> 
+                </div>
             </div>
-                                   
-            <button class="result-btn">Result</button>
+            </div>
+            <div class = "text-box row">
+                <video id="background-video-csv"  loop muted poster="Screenshot 2024-04-12 001112.png">
+                    <source src="kf.mp4" type="video/mp4">
+                  </video>
+                <div class = "col-xs-6 csv-augmentation">
+                    <h2> CSV AUGMENTATION</h2>
+                    <p class = "csv-augmentation-content">CSV augmentation is often used in machine learning and data analysis tasks to improve the performance and generalization of predictive models. By increasing the size and diversity of the dataset, CSV augmentation can help reduce overfitting, improve model accuracy, and make the model more robust to variations in the input data.</p>
+                    <div class="btn-box">
+                        <form onsubmit="return false">
+                        <div class="email-section row">
+                            <input type="email" autocomplete ="on" name = "email" id="csv-email-input" class = "email-input" placeholder="Enter your email address"/>
+                            
+                        </div>
+                        <label for="csv-file" class="file-label file-label-csv" id="csv-label">Upload CSV File</label>
+                        <input type="file" id="csv-file" style="display: none;" accept=".csv" >
+                        <div><button type="submit" class = "submit-email-btn" id="submit-csv-email-btn" onclick="handleCsvUpload()">Submit</button></div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+            <div id="success-csv-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <p>Augmented CSV File will be sent to your email.</p>
+                </div>
+            </div>
+            <div id="success-image-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <p>Augmented Image File will be sent to your email.</p>
+                </div>
+            </div>
+                                  
+            
         </div>
     </section>
 </body>

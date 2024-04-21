@@ -13,23 +13,22 @@ body{
 }
 
 .header {
-    position: fixed;
+    position: relative;
     top: 0;
     left: 0;
     width: 100%;
     padding: 20px 10%;
-    background: transparent ;
+    background:transparent ;
     display: flex;
     justify-content: space-between;
-    align-items: center;
     z-index: 100;
 }
 
 .logo{
     position: relative;
     font-size: 25px;
-    color: #ededed;
-    text-decoration: none;
+    color: #ededed !important;
+    text-decoration: none !important;
     font-weight: 600;
 }
 
@@ -46,10 +45,20 @@ body{
     /*animation-duration: 1s;*/
 }
 /* Ensure the text is visible */
-.logo:hover {
-    color: black; /* Change text color on hover */
+.augmentation-header{
+    padding-top: 8%;
+}
+.csv-augmentation-content{
+    font-size: 20px !important;
+}
+.image-augmentation-content{
+    font-size: 20px !important;
 }
 
+.augmentation-content{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 25px !important;
+}
 .navbar a{
     font-size: 18px;
     color: #ededed;
@@ -65,7 +74,6 @@ body{
 }
 
 .home {
-    height: 100vh;
     /*background: url('INSIGHTS\ TO\ ARTIFICIAL\ NEURAL\ NETWORKS\ IN\ AI\ Gain\ real-time\ expertise\ in\ working\ on\ handling1.jpeg') no-repeat;
     */background-size: auto;
     background-position: right;
@@ -74,9 +82,7 @@ body{
     padding: 0 10%;
 }
 
-.home-content {
-    max-width: 600px;
-}
+
 
 .home-content h1{
     position: relative;
@@ -99,6 +105,7 @@ body{
 }
 
 .home-content p{
+    text-align: justify;
     position: relative;
     font-size: 16px;
     margin: 20px 0 40px;
@@ -106,6 +113,27 @@ body{
 }
 
 .home-content p::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    animation: showRight 1s ease forwards;
+    animation-delay: 1.6s;
+}
+
+.home-content h2{
+    left: 16%;
+    position: relative;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: white;
+}
+
+.home-content h2::before{
     content: '';
     position: absolute;
     top: 0;
@@ -201,17 +229,98 @@ body{
 }
 
 #background-video {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    position: fixed;
+    position: absolute;
     left: 0;
     right: 0;
     top: 0;
     bottom: 0;
     z-index: -1;
   }
-  
+
+#background-video-text-box{
+    width: 100%;
+    height: 107%;
+    object-fit: cover;
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: -1;
+
+}
+
+#background-video-csv{
+    width: 100%;
+    height: 107%;
+    object-fit: cover;
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: -1;
+
+}
+
+.image-augmentation{
+    left: 29%;
+    top: 28%;
+}
+.image-augmentation-height{
+    height: 64rem;
+}
+
+.text-box{
+    height: 80rem;
+}
+
+.csv-augmentation{
+    left: 28%;
+    top: 30%;
+}
+
+.email-section {
+    position: relative;
+    left: 18%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.email-input {
+    position: relative;
+    padding: 7px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding-right: 10px;
+}
+.email-input:hover{
+    background-color: #081b29;
+    color: #00abf0;
+}
+
+.submit-email-btn {
+    margin-top: 5%;
+    position: relative;
+    left: 55%;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #00abf0;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.submit-email-btn:hover{
+    background-color: #081b29;
+    color: #00abf0;
+}
+
+.upload-buttons {
+    margin-top: 20px;
+}
+
+/* Rest of your existing CSS styles */
 
 .home-imgHover {
     position: absolute;
@@ -247,6 +356,7 @@ body{
 
 /* Apply styles to the buttons */
 .file-label {
+    
     display: inline-block;
     padding: 10px 20px;
     background-color: #00abf0;
@@ -260,6 +370,13 @@ body{
     position: relative; /* Added for positioning of pseudo-element */
 }
 
+.file-label-image{
+    left: 44%;
+}
+
+.file-label-csv{
+    left: 45%;
+}
 /* Apply styles to the buttons' pseudo-elements */
 .file-label::before {
     content: '';
@@ -284,6 +401,43 @@ body{
     color: #00abf0;
 }
 
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: black;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.modal-content p{
+    text-align: center;
+}
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
 
 .result-btn::before {
     content: '';
@@ -321,7 +475,6 @@ body{
     background-color: #081b29;
     color: #00abf0;
 }
-
 
 
 
