@@ -532,6 +532,7 @@ body{
 }
 .contact {
     display: flex;
+    padding-right: 3rem;
 }
 
 .contact-body{
